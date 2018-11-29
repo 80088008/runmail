@@ -1,8 +1,13 @@
-language:
-  go
+language: ruby
 
-go_import_path:
-  github.com/pyenin/runmail
+services:
+  - docker
 
-notifications:
-  slack: 8oo8oo:RUSfQz67tDHv7b9FM0GHRGz2
+before_install:
+  - docker build -t carlad/sinatra .
+  - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+  - docker ps -a
+  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+
+script:
+  - bundle exec rake test
