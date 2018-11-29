@@ -1,9 +1,5 @@
 language:
   go
 
-go:
-  "1.11.2"
-
 go_import_path:
   github.com/pyenin/runmail
-  go get -t -v ./...
