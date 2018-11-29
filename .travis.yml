@@ -3,3 +3,6 @@ language:
 
 go_import_path:
   github.com/pyenin/runmail
+
+notifications:
+  slack: 8oo8oo:RUSfQz67tDHv7b9FM0GHRGz2
